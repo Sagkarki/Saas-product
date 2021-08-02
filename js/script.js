@@ -16,22 +16,19 @@ function getJobs(){
 function showJobs(jobs){
     console.log(jobs);
     let jobsContainer = document.querySelector(".job-container");
-    
     let jobsHTML = "";
     jobs.forEach(job => {
-        
-        jobsHTML +- `
-        <div class="job-tile">
+        jobsHTML += `
+            <div class="job-tile">
                 <div class="top">
-                    <img src="https://pbs.twimg.com/profile_images/1871386426/TSIconButtonSM_400x400.png"/>
+                    <img src="${job.logo}"/>
                     <span class="material-icons more_horiz">more_horiz</span>
                 </div>
                 <div class="rolename">
-                    <span>Lead Product Design</span>
+                    <span>${job.roleName}</span>
                 </div>
                 <div class="description">
-                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer laoreet ligula sit amet mauris elementu
-                    </span>
+                    <span>${job.requirements.content}</span>
                 </div>
                 <div class="buttons">
                     <div class="button apply-now">
@@ -43,18 +40,12 @@ function showJobs(jobs){
                 </div>
             </div> 
         `
-
-
-
-
-
-
-
-
-
-    })
+    }) 
+    
+    jobsContainer.innerHTML = jobsHTML;
 
 }
 getJobs().then(data => {
     showJobs(data);
 });
+   
